@@ -1,0 +1,629 @@
+* {
+  box-sizing: border-box;
+}
+html, body {
+  background: rgb(140, 45, 78);
+}
+a, a:link, a:visited {
+  text-decoration: none;
+  color: #e1487e;
+}
+a, a:visited, a:focus, a:active, a:hover {
+	outline: 0 none !important;
+}
+
+header {
+  text-align: center;
+}
+header a, header a:link, header a:visited {
+  font-size: 18pt;
+  color: rgb(239, 160, 188);
+}
+
+.mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 99;
+}
+/*Changed my mind not to use this animation
+.greetingalert img {
+  opacity: 0;
+  animation: greetingalert1 2s;
+  animation-fill-mode: forwards;
+}*/
+.greetingalert button {
+  opacity: 0;
+  animation: greetingalert2 2s 1s;
+  animation-fill-mode: forwards;
+}
+/*Changed my mind not to use this
+@keyframes greetingalert1 {
+  from {transform: scale3d(0,0,0);}
+  to {transform: scale3d(1,1,2);}
+  0% {opacity: 0;}
+  25%  {opacity: 0.33;}
+  75%  {opacity: 0.66;}
+  100% {opacity: 1;}
+}*/
+@keyframes greetingalert2 {
+  0% {opacity: 0;}
+  25%  {opacity: 0.33;}
+  75%  {opacity: 0.66;}
+  100% {opacity: 1;}
+}
+.greetingalert, .endgamealert, .sendscorealert, .secondendgamealert {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 1.3125em;
+  border: solid black 3px;
+  padding: 2em;
+  background: rgb(220, 67, 119);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  z-index: 100;
+}
+.greetingalert > h1 {
+  letter-spacing: 1px;
+  font-size: 32pt;
+  margin: 0em 0em 0.625em 0em;
+  color: rgb(249, 200, 200);
+}
+.greetingalert > button {
+  background: hotpink;
+  font-size: 16pt;
+  letter-spacing: 1px;
+  border-radius: 0.625em;
+  border: solid black 3px;
+  padding: 0.625em;
+  margin-top: 0.625em;
+  max-width: 50%;
+  cursor: pointer;
+}
+
+main {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  overflow: hidden;
+}
+#gamedetails {
+  display: flex;
+  justify-content: center;
+  flex: 1 100%;
+  margin: 0.625em;
+  font-size: 16pt;
+}
+#gamedetails > div, .finalgamedetails > div {
+  background: rgba(255, 192, 203,0.8);
+  border: rgb(190, 110, 128) solid;
+  border-radius: 50px;
+  padding: 0.625em;
+  margin: auto 0.625em;
+}
+#gamedetails > button, .endgamead > button {
+  background: rgba(255, 192, 203,0.8);
+  border: rgb(190, 110, 128) solid;
+  border-radius: 50px;
+  padding: 0.625em;
+  margin: auto 0.625em;
+  font-size: 16pt;
+}
+
+#container {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+  flex: 1 100%;
+	max-width: 98%;
+	background: rgb(193, 104, 135);
+  border: solid pink;
+	padding: 1.5em;
+  perspective: 1000px;
+  perspective-origin: left;
+}
+#container .containerimage {
+  margin: 0.625em;
+  position: relative;
+  width: 200px;
+  height: 200px;
+  top: 500px;
+  opacity: 0;
+  transition: all 1s ease;
+  transform-style: preserve-3d;
+}
+#container .logofront {
+  border: #000 0.0625em solid;
+  background: url(../images/logos/consultantlogopinkletters200.jpg) center no-repeat;
+  cursor: pointer;
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 200px;
+}
+#container .card {
+  border: #000 0.0625em solid;
+  cursor: pointer;
+  transition: all 1s ease-in-out;
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 200px;
+  transform: rotateY(180deg);
+}
+.fliptile {
+  transform: rotateY(180deg);
+}
+#container .containerimage img {
+  max-width: 200px;
+  max-height: 200px;
+}
+#container .dealcardafter {
+  opacity: 0.5;
+  transition: all 1s ease;
+}
+#container .dealcard:nth-of-type(1) {
+  animation: dealcards 1s linear;
+}
+#container .dealcard:nth-of-type(2) {
+  animation: dealcards 1s 0.25s linear;
+}
+#container .dealcard:nth-of-type(3) {
+  animation: dealcards 1s 0.5s linear;
+}
+#container .dealcard:nth-of-type(4) {
+  animation: dealcards 1s 0.75s linear;
+}
+#container .dealcard:nth-of-type(5) {
+  animation: dealcards 1s 1s linear;
+}
+#container .dealcard:nth-of-type(6) {
+  animation: dealcards 1s 1.25s linear;
+}
+#container .dealcard:nth-of-type(7) {
+  animation: dealcards 1s 1.50s linear;
+}
+#container .dealcard:nth-of-type(8) {
+  animation: dealcards 1s 1.75s linear;
+}
+#container .dealcard:nth-of-type(9) {
+  animation: dealcards 1s 2s linear;
+}
+#container .dealcard:nth-of-type(10) {
+  animation: dealcards 1s 2.25s linear;
+}
+#container .dealcard:nth-of-type(11) {
+  animation: dealcards 1s 2.50s linear;
+}
+#container .dealcard:nth-of-type(12) {
+  animation: dealcards 1s 2.75s linear;
+}
+#container .dealcard:nth-of-type(13) {
+  animation: dealcards 1s 3s linear;
+}
+#container .dealcard:nth-of-type(14) {
+  animation: dealcards 1s 3.25s linear;
+}
+#container .dealcard:nth-of-type(15) {
+  animation: dealcards 1s 3.50s linear;
+}
+#container .dealcard:nth-of-type(16) {
+  animation: dealcards 1s 4.00s linear;
+}
+#container .dealcard:nth-of-type(17) {
+  animation: dealcards 1s 4.25s linear;
+}
+#container .dealcard:nth-of-type(18) {
+  animation: dealcards 1s 4.50s linear;
+}
+@keyframes dealcards {
+  40% {opacity: 0;}
+  100% {opacity: 1;}
+  70% {transform: rotate(-40deg);}
+  80% {transform: rotate(-30deg);}
+  90% {transform: rotate(-20deg);}
+  100% {transform: rotate(0deg);}
+}
+#container > div:hover, .productcardscontainer > figure > a > img {
+  box-shadow: 2px 4px 4px rgba(0,0,0,0.4);
+}
+.endgamead, .sendscore, .secondendgamead {
+  display: none;
+}
+.endgamealert {
+  flex-flow: row wrap;
+  justify-content: center;
+  width: 99%;
+}
+.endgamealert > h1 > a {
+  letter-spacing: 1px;
+  font-size: 28pt;
+  color: rgb(249, 200, 200);
+}
+.endgamealert h1:first-of-type {
+  margin: 0em 0em 0.625em 0em;
+}
+.endgamealert h1:last-of-type {
+  margin: 0.625em 0em;
+}
+.endgamealert > h1:first-of-type {
+  opacity: 0;
+  transform-style: preserve-3d;
+  perspective: 500px;
+  animation: endgamealert1 1s ease-in-out;
+  animation-fill-mode: forwards;
+}
+@keyframes endgamealert1  {
+  0% {opacity: 0;}
+  25%  {opacity: 0.33;}
+  75%  {opacity: 0.66;}
+  100% {opacity: 1;}
+  from {transform: translate3d(0px,11.25em,0em) scale3d(0.1,0.1,0.1);}
+  to {transform: translate3d(0em,0em,0em) scale3d(1.1,1.1,1.1);}
+}
+.endgamealert img {
+  animation: endgamealert2 2s 2s ease-in-out;
+}
+@keyframes endgamealert2  {
+  0% {transform: translate(0px, 0px) rotateZ(0.001deg);}
+  50% {transform: translate(0px, 25px) rotateZ(0.001deg);}
+  100% {transform: translate(0px, 0px) rotateZ(0.001deg);}
+}
+.endgamealert > h1:nth-of-type(2) {
+    animation: endgamealert3 2s 3s linear;
+    animation-iteration-count: 3;
+}
+@keyframes endgamealert3 {
+  0% {transform: skew(0deg, 0deg) rotateZ(0.1deg);}
+  20% {transform: skew(2deg, 4deg) rotateZ(0.2deg);}
+  50% {transform: skew(0deg, 0deg) rotateZ(0.1deg);}
+  80% {transform: skew(-2deg, -4deg) rotateZ(0.2deg);}
+  100% {transform: skew(0deg, 0deg) rotateZ(0.1deg);}
+}
+.finalgamedetails {
+  display: inline-flex;
+  justify-content: center;
+  flex: 1 100%;
+  margin-bottom: 0.625em;
+  font-size: 18pt;
+}
+.productcardscontainer {
+  display: inline-flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  flex: 1 100%;
+}
+.productcardscontainer > figure {
+  margin: 0.625em;
+}
+.productcardscontainer > figure > a > img {
+  max-width: 100px;
+  max-height: 100px;
+}
+.productcardcaption {
+  border-radius: 25% 50% 75% 100%;
+  border: rgb(255, 105, 180) solid 1px;
+  background: pink;
+}
+.endgamealert > button, .sendscorealert button, .secondendgamealert > button, .detailssentalert button {
+  background: hotpink;
+  font-size: 16pt;
+  letter-spacing: 1px;
+  border-radius: 0.625em;
+  border: solid black 3px;
+  padding: 0.625em;
+  margin: 0.625em;
+  max-width: 50%;
+  cursor: pointer;
+}
+.secondendgamealert > button:nth-of-type(2), .sendscorealert button:nth-of-type(2) {
+  border: solid black 1px;
+  font-size: 8pt;
+  padding: 0.3125em;
+  margin: 0.625em;
+  max-width: 5%;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+/*Form Bubble not working
+.submitscoreform::-webkit-validation-bubble { border: red;}
+.submitscoreform::-webkit-validation-bubble-arrow { border: red;}
+.submitscoreform::-webkit-validation-bubble-message { border: red;}
+.submitscoreform::-webkit-validation-bubble-arrow-clipper { border: red;}
+.secondendgamealert > button:nth-of-type(1) {
+  margin-bottom: 0;
+}*/
+.submitscoreform {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  text-align: center;
+}
+.submitscoreform legend {
+  font-size: 18pt;
+  font-weight: bold;
+  font-style: oblique;
+  flex: 1 100%;
+  margin: 0.625em auto;
+  color: rgb(249, 200, 200);
+}
+.submitscoreform .enterdata {
+  margin: 0.3125em auto;
+}
+.submitscoreform label {
+  display: inline-flex;
+  min-width: 95px;
+  font-size: 14pt;
+  font-weight: bold;
+  font-style: normal;
+}
+.submitscoreform input {
+  min-width: 175px;
+  background: lightpink;
+  border: inset rgba(0,0,0,0.4) 1px;
+  border-radius: 25% 75% 50% 25%;
+}
+.submitscoreform .finalgamedetails {
+  font-size: 12pt;
+}
+.submitscoreform textarea {
+  background: lightpink;
+  margin-top: 0.625em;
+  border-radius: 2%;
+  border: inset rgba(0,0,0,0.4) 2px;
+}
+.submitscoreform button:first-of-type {
+  font-size: 12pt;
+}
+
+.gamedetailssent {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 1.3125em;
+  border: solid black 3px;
+  padding: 0.625em;
+  background: rgb(220, 67, 119);
+}
+
+.secondendgamealert {
+  padding-bottom: 1em;
+}
+.secondendgamealert button:first-of-type {
+  animation: secondendgamealert1 3s ease-in-out;
+}
+@keyframes  secondendgamealert1  {
+  from {transform: scale3d(0,0,0) rotateZ(0.22deg);}
+  to {transform: scale3d(1,1,2) rotateZ(0.22deg);}
+}
+
+footer {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 0.625em;
+}
+#contact > a > img:nth-of-type(-n+3) {
+  max-width: 45%;
+  margin: 0.625em;
+}
+#facebookgoogleplay {
+  display: inline-flex;
+  align-items: center;
+}
+#facebookgoogleplay > a {
+  margin: 0.625em;
+}
+#facebookgoogleplay > a > img:not(.googleplay) {
+  width: 50px;
+}
+#facebookgoogleplay .googleplay {
+  width: 115px;
+}
+#copyright {
+  align-self: flex-start;
+}
+#copyright > a {
+  font-size: 8pt;
+}
+#copyright > a:hover, #copyright > a:active {
+	background-color: lightpink;
+}
+
+@media screen and (max-width: 767px) {
+  .greetingalert, .endgamealert, .sendscorealert, .secondendgamealert {
+    padding: 0.625em;
+  }
+  .greetingalert > h1 {
+    font-size: 12pt;
+  }
+  .greetingalert img {
+    max-width: 300px;
+  }
+  .greetingalert > button {
+    font-size: 12pt;
+    padding: 0.3125em;
+    margin-top: 0.3125em;
+  }
+
+  header > a, header a:link, header a:visited {
+    font-size: 8pt;
+  }
+
+  #gamedetails {
+    margin: 0 0.625em 0.625em 0.625em;
+    font-size: 8pt;
+  }
+  #gamedetails > div:last-of-type {
+    font-size: 7pt;
+  }
+  #gamedetails > button, .endgamead > button {
+    font-size: 8pt;
+  }
+
+  #container {
+  	max-width: 99%;
+    padding: 0.3125em;
+  }
+  #container .containerimage {
+    margin: 0.3125em;
+    width: 80px;
+    height: 80px;
+  }
+  #container .logofront {
+    background-size: cover;
+    width: 80px;
+    height: 80px;
+  }
+  #container .card {
+    width: 80px;
+    height: 80px;
+  }
+  #container .containerimage img{
+  	max-width: 80px;
+    max-height: 80px;
+  }
+
+  .endgamealert {
+    width: 99%;
+  }
+  .endgamealert > h1:first-of-type {
+    line-height: 20px;
+    margin:  0.3125em;
+  }
+  .endgamealert > h1:last-of-type {
+    margin: 0em 0.3125em 0.3125em 0.3125em;
+  }
+  .endgamealert > h1 > a {
+    font-size: 12pt;
+  }
+  .finalgamedetails {
+    font-size: 9pt;
+  }
+  .productcardscontainer > figure {
+    margin: 0.3125em;
+  }
+  .productcardscontainer > figure > a > img {
+    max-width: 70px;
+  }
+  .productcardcaption {
+    font-size: 11pt;
+  }
+  .endgamealert > button, .sendscorealert button, .secondendgamealert > button, .detailssentalert button {
+    font-size: 10pt;
+    padding: 0.3125em;
+    margin: 0.3125em;
+  }
+
+  .sendscorealert{
+    width: 99%;
+  }
+  .submitscoreform label {
+    font-size: 11pt;
+  }
+  .submitscoreform textarea {
+    width: 98%;
+  }
+
+  .secondendgamealert > button:nth-of-type(2), .sendscorealert button:nth-of-type(2) {
+    font-size: 8pt;
+    padding: 0.3125em;
+    margin: 0.625em;
+  }
+
+  .secondendgamealert {
+    max-width: 99%;
+    padding: 2em 0.625em 0.625em 0.625em;
+  }
+  .secondendgamealert img {
+    max-width: 98%;
+  }
+  .detailssentalert {
+    max-width: 99%;
+  }
+  .detailssentalert > h1 {
+    max-width: 98%;
+    font-size: 10pt;
+  }
+  .detailssentalert > a > img {
+    max-width: 300px;
+  }
+  #contact > a > img:nth-of-type(-n+3) {
+    max-width: 300px;
+  }
+  #facebookgoogleplay > a {
+    margin: 0.3125em;
+  }
+}
+
+@media screen and (max-width: 991px) and (orientation: landscape) {
+  .greetingalert h1 {
+    margin-bottom: 0.3125em;
+  }
+  .greetingalert img {
+    max-height: 250px;
+  }
+
+  #gamedetails {
+    margin: 0 0.625em 0.625em 0.625em;
+    font-size: 8pt;
+  }
+  #gamedetails > button {
+    font-size: 8pt;
+  }
+  .endgamealert {
+    width: 99%;
+  }
+  .endgamealert > h1:first-of-type {
+    margin:  0em 0.3125em 0.3125em;
+  }
+  .endgamealert > h1:last-of-type {
+    margin: 0em 0.3125em 0.3125em 0.3125em;
+  }
+  .endgamealert > h1 > a {
+    font-size: 12pt;
+  }
+
+  .finalgamedetails {
+    font-size: 10pt;
+  }
+  .productcardscontainer > figure {
+    margin: 0.1526em;
+  }
+  .productcardscontainer > figure > a > img {
+    max-width: 60px;
+  }
+  .productcardcaption {
+    font-size: 8pt;
+  }
+  .endgamealert > button, .sendscorealert button, .secondendgamealert > button, .detailssentalert button {
+    font-size: 10pt;
+    padding: 0.3125em;
+    margin: 0.3125em;
+    max-width: 50%;
+  }
+
+  .gamedetailssent a img {
+    max-width: 375px;
+  }
+
+  #contact > a > img:nth-of-type(-n+3) {
+    max-width: 250px;
+  }
+}
